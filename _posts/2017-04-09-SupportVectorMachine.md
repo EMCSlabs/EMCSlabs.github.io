@@ -5,7 +5,8 @@ description: "Support Vector Machine"
 headline: "Support Vector Machine"
 categories: MACHINELEARNING
 tags: 
-  - MACHINELEARNING
+  - Machine Learning
+  - SVM
 comments: false
 mathjax: true
 featured: false
