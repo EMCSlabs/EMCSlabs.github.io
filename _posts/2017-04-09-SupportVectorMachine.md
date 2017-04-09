@@ -3,9 +3,9 @@ layout: post
 title: Support Vector Machine
 description: "Support Vector Machine"
 headline: "Support Vector Machine"
-categories: Math
+categories: MachineLearning
 tags: 
-  - Math
+  - Machinelearning
 comments: false
 mathjax: true
 featured: false
