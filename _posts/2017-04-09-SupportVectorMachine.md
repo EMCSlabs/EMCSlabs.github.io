@@ -24,18 +24,7 @@ published: true
 
 - How?
 	- Decision Boundary로부터 그와 가장 가까운 데이터 포인트 (=support vectors) 간의 수직 거리(=margin)가 최대가 되도록 한다.
-	- 이는 다음과 같은 목적함수로 표현된다. <br>
-
-		- 조건<br>
-y_i(\mathbf{w}\cdot\mathbf{x_i} - b) \ge 1,\text{ for all } 1 \le i \le n.<br>
-
-		- 목적함수<br>
-\arg\min_{(\mathbf{w},b)}\frac{1}{2}\|\mathbf{w}\|^2 <br>
-
-
-		- Lagrange Multipliers 도입하여 하나의 조건부 최적화 문제로 표현<br>
-\arg\min_{\mathbf{w},b } \max_{\boldsymbol{\alpha}\geq 0 } \left\{ \frac{1}{2}\|\mathbf{w}\|^2 - \sum_{i=1}^{n}{\alpha_i[y_i(\mathbf{w}\cdot \mathbf{x_i} - b)-1]} \right\} <br>
-
+	- 조건부 최적화 문제
 - 조건부 최적화 문제를 푸는 방법: Karush-Kuhn-Tucker 조건 이용
 
 ## Linearly nonseparable SVM
