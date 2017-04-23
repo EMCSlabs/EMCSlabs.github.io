@@ -18,6 +18,7 @@ published: true
 
 ### Jupyter가 뭐지?
 - Jupyter notebook (이하 Jupyter로 명칭)은 코드 및 데이터 시각화를 위한 여러 기능을 제공하는 웹 애플리케이션이다. 
+
 > (공식홈페이지 왈) "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, machine learning and much more."  [공식 링크](http://jupyter.org/)
 
 <br>
@@ -25,7 +26,8 @@ published: true
 ### Jupyter로 할 수 있는 것들
 #### (1) 코드 작성 및 정리
 - Jupyter는 Python에만 국한된 웹앱이 아닌, 여러 언어를 지원하는 플랫폼 같은 것이라는 점  
-	> e.g. Python, Bash, Java, C 등등 심지어 Matalb까지 지원됨!! (참고 [Jupyter지원 언어 Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels))  
+
+	> e.g. Python, Bash, Java, C 등등 심지어 Matlab까지 지원됨!! (참고 [Jupyter지원 언어 Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels))  
 - 코드 하이라이팅, 라인 정렬, 함수 미리보기 등의 기능 지원
 - 코드를 작성 후 코멘트를 markdown이나 html로 작성할 수 있으므로 배포/공유에 용이함
   
@@ -61,8 +63,8 @@ published: true
   - macOS나 Linux, Windows 등 본인 OS에 맞게 설치할 것
   - Graphic installer나 Command-line installer 둘 중에 하나를 선택하여 설치
   - Anaconda설치 후, Terminal에서 `which conda`를 입력하면 Anaconda의 설치경로가 나옴. 참고로 `conda`가 주요 명령어임
-  - Anaconda설치 후, 기본 Python의 경로가 Anaconda내의 Python으로 바뀜. 확인 필요 (Terminal에서 `which python`를 입력한 결과를 확인)
-  
+  - Anaconda설치 후, 기본 Python의 경로가 Anaconda내의 Python으로 바뀜. 확인 필요 (Terminal에서 `which python`를 입력한 결과를 확인)  
+
 	```bash  
 	$ which conda
 	/Users/jaegukang/anaconda3/bin/conda  
@@ -71,16 +73,16 @@ published: true
 	```
 
 #### 2. 가상환경을 만들고 Anaconda 패키지들을 설치
-- 예시, 가상환경의 이름을 'my_env'로 하고 모든 Anaconda패키지를 my_env가상환경에 설치하는 경우  
-    - my_env라는 이름의 가상환경을 만들고, anaconda패키지를 옮겨오기
-    - 여기서 모든 anaconda를 다 불러와서 설치해도 되고, 필요한 모듈만 선택적으로 설치 가능  
+- 예시: 가상환경의 이름을 'my_env'로 하고 모든 Anaconda패키지를 my_env가상환경에 설치하는 경우  
+    - my_env라는 이름의 가상환경을 만들고, anaconda패키지를 새로 설치하기
+    - 여기서 모든 anaconda를 다 불러와서 설치해도 되고, 필요한 모듈만 선택적으로 설치 가능  
 
 	```bash
 	Jaegus-Air: jaegukang$ conda create -n my_env anaconda 
 	```  
   
 	- my_env 가상환경 모드에 진입하기  
-	- 커맨드라인에 (my_env)가 추가됨  
+	- 커맨드라인에 (my_env)가 추가된 것을 알 수 있음
 
 	```bash  
 	Jaegus-Air: jaegukang$ conda activate my_env
@@ -103,7 +105,7 @@ published: true
 
 - 위의 명령어를 입력하는 순간, 컴퓨터의 default web browser (e.g. Chrome)가 열리면서 Jupyter 환경이 열림
 - 터미널 창은 일종의 log가 기록되는 화면으로 바뀜
-- 만약 이렇게 터미널이 남아 있는 것이 보기 싫다면 nohup을 이용해서 jupyter log화면을 숨길 수 있음
+- 만약 이렇게 터미널이 남아 있는 것이 보기 싫다면 nohup을 이용해서 jupyter log화면을 숨길 수 있음  
 
 	```bash
 	Jaegus-Air: jaegukang$ nohup jupyter notebook >jupyter.log &  
