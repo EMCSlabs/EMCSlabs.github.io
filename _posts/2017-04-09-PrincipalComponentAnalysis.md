@@ -23,6 +23,7 @@ published: true
 	3. Singular Vector Decomposition을 통해 공분산의 Eigenvectors와 Eigenvalue 구하기 
 		- Orthogonal Eigenvectors * Diagonal Eigenvalues * Orthogonal Eigenvectors로 분해됨
 	4. Eigenvalue값이 큰 Eigenvector순으로 제 1주성분, 제2주성분,...순서가 매겨짐
+		- eigenvalue가 variance를 나타냄
 	5. 몇 개의 주성분을 선택할지는 Scree plot을 그려서 판단한다.
 		- x축 Eigenvector (PC1, PC2, PC3, ..)
 		- y축 각 주성분에 대응하는 Eigenvalue
@@ -38,6 +39,18 @@ published: true
 	- Supervised
 	- 종속변수-모델 간 거리 최소화
 	- 최소화하는 대상이 PCA와 다르기 때문에 Least Squared 방법으로 구한 리그레션 모델은 항상 PC1보다 기울기가 낮다. 
+
+## Covariance vs Correlation
+
+- Correlation은 Normalized Covariance와 동일하다. 
+- PCA 도입부에 feature normalization하는 이유는 covariacne matrix가 사실상 correlation matrix가 되도록 만들어 주기 위함이다.
+- Covariance Matrix에 대한 이해 
+    - x,y,z feature set에 대한 3-by-3 covariance matrix A가 있을 때,
+        - A(1,1): 모든 데이터를 x축에 projection 시킨 다음에 그 축 상에서의 variance 계산한 값.
+        - A(1,2): 모든 데이터를 x축과 y축이 이루는 2D 평면에 projection 시킨 다음에 그 평면 상에서의 covariance를 계산한 값. 
+    - 또 다른 생각방식: Covariance란 Normalized data value 간의 cosine similarity.  
+- Correlation과 Covariance 모두 데이터의 Gaussian 분포를 가정하고 있다는 사실이 중요하다. 따라서 Gaussian 분포를 이루지 않은 데이터에 대해서 PCA를 하면 무의미한 결과가 나온다. (Gaussian 분포 공식을 생각해보면 covariance 구하는 식이 들어가 있음)
+
 
 
 <p align="right"> Yeonjung Hong <p>
