@@ -117,3 +117,4 @@ published: true
 - Jupyter의 자세한 사용법 관련 참고 사이트: [https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#gs.qbBy2=I](https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#gs.qbBy2=I)
 - [useful_bits](https://github.com/jaekookang/useful_bits)
 
+<p align="right"> Jaekoo Kang <p>
