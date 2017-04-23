@@ -1,12 +1,11 @@
 ---
 layout: post
-title: Jupyter tutorial: 02_server_connection
+title: "Jupyter tutorial: 02_server_connection"
 description: "Jupyter tutorial"
 headline: "Jupyter tutorial: 02_server_connection"
 categories: Misc
 tags: 
   - Misc
-  - Programming
 comments: false
 mathjax: true
 featured: false
