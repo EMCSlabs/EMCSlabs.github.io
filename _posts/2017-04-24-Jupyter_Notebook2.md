@@ -102,4 +102,4 @@ $ kill $(pgrep jupyter)
 $ kill $(pgrep python)
 ```
 
-
+<p align="right"> Jaekoo Kang <p>
