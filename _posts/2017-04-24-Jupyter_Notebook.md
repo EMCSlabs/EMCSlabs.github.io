@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jupyter tutorial: 01_intro_install
+title: "Jupyter tutorial: 01_intro_install"
 description: "Jupyter tutorial"
 headline: "Jupyter tutorial: 01_intro_install"
 categories: Misc
