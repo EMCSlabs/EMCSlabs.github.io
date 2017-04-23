@@ -3,9 +3,10 @@ layout: post
 title: Motion Equation
 description: "Jupyter tutorial"
 headline: "Jupyter tutorial: 01_intro_install"
-categories: Math
+categories: Misc
 tags: 
   - Misc
+  - Programming
 comments: false
 mathjax: true
 featured: false
@@ -63,44 +64,53 @@ published: true
   - Anaconda설치 후, Terminal에서 `which conda`를 입력하면 Anaconda의 설치경로가 나옴. 참고로 `conda`가 주요 명령어임
   - Anaconda설치 후, 기본 Python의 경로가 Anaconda내의 Python으로 바뀜. 확인 필요 (Terminal에서 `which python`를 입력한 결과를 확인)
   
-><pre><code>$ which conda  
-/Users/jaegukang/anaconda3/bin/conda  
-$ which python   
-/Users/jaegukang/anaconda3/bin/python
-</code></pre>
-
+	```bash  
+	$ which conda
+	/Users/jaegukang/anaconda3/bin/conda  
+	$ which python   
+	/Users/jaegukang/anaconda3/bin/python
+	```
 
 #### 2. 가상환경을 만들고 Anaconda 패키지들을 설치
 - 예시, 가상환경의 이름을 'my_env'로 하고 모든 Anaconda패키지를 my_env가상환경에 설치하는 경우  
     - my_env라는 이름의 가상환경을 만들고, anaconda패키지를 옮겨오기
     - 여기서 모든 anaconda를 다 불러와서 설치해도 되고, 필요한 모듈만 선택적으로 설치 가능  
-><pre><code>Jaegus-Air: jaegukang$ conda create -n my_env anaconda 
-</code></pre>
 
-    - my_env 가상환경 모드에 진입하기  
-    - 커맨드라인에 (my_env)가 추가됨    
-><pre><code>Jaegus-Air: jaegukang$ conda activate my_env
-(my_env) Jaegus-Air: jaegukang$
-</code></pre>  
+	```bash
+	Jaegus-Air: jaegukang$ conda create -n my_env anaconda 
+	```  
+  
+	- my_env 가상환경 모드에 진입하기  
+	- 커맨드라인에 (my_env)가 추가됨  
+
+	```bash  
+	Jaegus-Air: jaegukang$ conda activate my_env
+	(my_env) Jaegus-Air: jaegukang$
+	```
 
     - python의 경로가 my_env 가상환경에 있는 python의 위치로 변경된 것 확인 
     - 가상환경은 그냥 새로운 폴더일 뿐
-><pre><code>(my_env) Jaegus-Air: jaegukang$ which python
-> /Users/jaegukang/anaconda3/envs/my_env/bin/python  
-</code></pre>
 
-#### 3. 가상환경 내에서 Jupyter를 실행하여 사용
-><pre><code>(my_env) Jaegus-Air: jaegukang$ jupyter notebook
-</code></pre>
+	```bash
+	(my_env) Jaegus-Air: jaegukang$ which python
+	/Users/jaegukang/anaconda3/envs/my_env/bin/python  
+	```
+
+#### 3. 가상환경 내에서 Jupyter를 실행하여 사용  
+	
+```bash
+(my_env) Jaegus-Air: jaegukang$ jupyter notebook
+```
 
 - 위의 명령어를 입력하는 순간, 컴퓨터의 default web browser (e.g. Chrome)가 열리면서 Jupyter 환경이 열림
 - 터미널 창은 일종의 log가 기록되는 화면으로 바뀜
 - 만약 이렇게 터미널이 남아 있는 것이 보기 싫다면 nohup을 이용해서 jupyter log화면을 숨길 수 있음
 
-><pre><code>(my_env) Jaegus-Air: jaegukang$ nohup jupyter notebook >jupyter.log &  
-Jaegus-Air: jaegukang$ kill %(pgrep jupyter)      % Jupyter를 끌 경우
-                                                  % 혹은 kill %(pgrep python)
-</code></pre>
+	```bash
+	Jaegus-Air: jaegukang$ nohup jupyter notebook >jupyter.log &  
+	Jaegus-Air: jaegukang$ kill %(pgrep jupyter)      % Jupyter를 끌 경우
+	                                                  % 혹은 kill %(pgrep python)
+	```
 
 - Jupyter설치 관련 참고 사이트: [http://jupyter.readthedocs.io/en/latest/install.html](http://jupyter.readthedocs.io/en/latest/install.html)
 - Anaconda 가상환경 관련 참고 사이트: [https://conda.io/docs/using/envs.html](https://conda.io/docs/using/envs.html)
