@@ -19,8 +19,7 @@ published: true
 	- 참고자료2: RNN backpropagation에 대한 쉬운 파이썬 코드 설명 [anyone-can-code-lstm](https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/). <br> 아래의 에니메이션(출처 [anyone-can-code-lstm](https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/))을 확장해서 RNN cell이 수십, 수백개가 연결되어있다고 한다면, 주황색으로 전달되는 에러(학습해야하는 분량)가 이전의 시간으로 전달될수록 점차 희석될 것이다. (색깔의 농도가 에러의 크기를 나타낸다고 가정할 때)
 	![](https://iamtrask.github.io/img/backprop_through_time.gif)
 - 에러가 학습패러미터(웨이트와 바이어스)에 잘 전달되지 않으면 아무리 RNN, LSTM과 같은 모델을 사용한다해도 시간 모델링 (time-dependancy modeling)이 제대로 이루어질 수 없다. 반대로 필요하지 않은 이전 정보들까지도 학습하게 돼서 예측이 잘 안될 수도 있다.
-- 즉 장기 기억을 적절한 단위로 쪼개서 학습시키자는 것이 아이디어. 이는 vanishing and exploding gradients문제를 해결하면서, 동시에 특정 인풋에 적합한 시간 window를 사용하자는 것으로 해석이 가능하다.  
-	>  <br>
+- 즉 장기 기억을 적절한 단위로 쪼개서 학습시키자는 것이 아이디어. 이는 vanishing and exploding gradients문제를 해결하면서, 동시에 특정 인풋에 적합한 시간 window를 사용하자는 것으로 해석이 가능하다.  <br>
 	> 비유를 하자면,  
 	> 비유1.  
 	> 1-1. (지금) 배가 아픔 --> (1시간 후) 티비를 봄  
@@ -39,8 +38,7 @@ published: true
 - 이렇게 BPTT의 촘촘함과 사이즈를 각각 $k_1$, $k_2$라고 표현할 수 있다 ([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html), [Ilya Sutskever’s Ph.D. thesis](http://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf)).
 - 즉 $k_1$, $k_2$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
 	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $k_1$이고, 얼마나 뒤까지 에러를 전달할지가 $k_2$이다. MFCC에 비유하자면, $k_1$는 shifting size와 유사하고, $k_2$는 window size와 유사하다.
-	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)    
-<br>
+	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)  <br>  
 
 		|      | 얼마나 멀리? | 얼마나 촘촘히? |  
 		| ---- | ----- | ----- |  
