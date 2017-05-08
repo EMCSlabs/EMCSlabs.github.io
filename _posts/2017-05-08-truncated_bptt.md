@@ -3,9 +3,9 @@ layout: post
 title: truncated BPTT
 description: truncated BPTT
 headline: 
-categories: Machine Learning
+categories: "Machine Learning"
 tags: 
-  - Machine Learning
+  - "Machine Learning"
 comments: false
 mathjax: true
 featured: false
