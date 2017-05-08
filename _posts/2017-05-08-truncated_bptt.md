@@ -20,7 +20,6 @@ published: true
 	![](https://iamtrask.github.io/img/backprop_through_time.gif)
 - 에러가 학습패러미터(웨이트와 바이어스)에 잘 전달되지 않으면 아무리 RNN, LSTM과 같은 모델을 사용한다해도 시간 모델링 (time-dependancy modeling)이 제대로 이루어질 수 없다. 반대로 필요하지 않은 이전 정보들까지도 학습하게 돼서 예측이 잘 안될 수도 있다.
 - 즉 장기 기억을 적절한 단위로 쪼개서 학습시키자는 것이 아이디어. 이는 vanishing and exploding gradients문제를 해결하면서, 동시에 특정 인풋에 적합한 시간 window를 사용하자는 것으로 해석이 가능하다.  
-
 <br />
 > 비유를 하자면,  
 > 비유1.  
@@ -41,7 +40,7 @@ published: true
 - 즉 $k_1$, $k_2$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
 	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $k_1$이고, 얼마나 뒤까지 에러를 전달할지가 $k_2$이다. MFCC에 비유하자면, $k_1$는 shifting size와 유사하고, $k_2$는 window size와 유사하다.
 	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)    
-	
+	<br />
 		|      | 얼마나 멀리? | 얼마나 촘촘히? |  
 		| ---- | ----- | ----- |  
 		| MFCC | window size | shifting size |  
