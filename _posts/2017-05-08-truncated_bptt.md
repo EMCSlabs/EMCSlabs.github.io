@@ -39,12 +39,14 @@ published: true
 - 즉 $k_1$, $k_2$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
 	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $k_1$이고, 얼마나 뒤까지 에러를 전달할지가 $k_2$이다. MFCC에 비유하자면, $k_1$는 shifting size와 유사하고, $k_2$는 window size와 유사하다.
 	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)    
-<br>
-|      | 얼마나 멀리? | 얼마나 촘촘히? |  
-| ---- | ----- | ----- |  
-| MFCC | window size | shifting size |  
-| truncated BPTT | $k_2$ | $k_1$ |   
-<br>
+	<br>
+
+	|      | 얼마나 멀리? | 얼마나 촘촘히? |  
+	| ---- | ----- | ----- |  
+	| MFCC | window size | shifting size |  
+	| truncated BPTT | $k_2$ | $k_1$ |  
+
+	<br>
 
 - TensorFlow에서는 $k_1 = k_2$로 설정한다는 점이 특징적이다 ([TensorFlow website](https://www.tensorflow.org/tutorials/recurrent), [WildML](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/)). 즉, shifting을 할 때, 안겹치게 하겠다는 것을 의미한다. 아래 그림 참조([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html)). 길이가 6인 인풋 데이터에서 $k_1=k_2=3$인 경우.
 	![](http://r2rt.com/static/images/RNN_tf_truncated_backprop.png)
