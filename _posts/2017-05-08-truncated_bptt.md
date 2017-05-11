@@ -7,7 +7,7 @@ categories: MACHINELEARNING
 tags: 
   - Machine Learning
 comments: false
-mathjax: true
+mathjax: false
 featured: false
 published: true
 ---
