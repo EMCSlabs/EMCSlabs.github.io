@@ -36,7 +36,7 @@ published: true
 # truncated BPTT의 구현
 - truncated BPTT의 구현은 다양한 방법으로 이루어질 수 있다. 사운드에서 MFCC를 추출할 때, window size와 shifting size를 미리 정해줄 수 있는 것처럼, truncated BPTT에서도 BPTT를 얼마나 (시간적으로) 긴 단위에 걸쳐서 할 것인지 (=window size), 그리고 얼마나 촘촘하게 할 것인지 (=shifting size)를 설정할 수 있다.
 - 이렇게 BPTT의 촘촘함과 사이즈를 각각 $$k_1$$, $$k_2$$라고 표현할 수 있다 ([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html), [Ilya Sutskever’s Ph.D. thesis](http://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf)).
-- 즉 $k_1$, $k_2$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
+- 즉 $$k_1$$, $$k_2$$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
 	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $$k_1$$이고, 얼마나 뒤까지 에러를 전달할지가 $$k_2$$이다. MFCC에 비유하자면, $$k_1$$는 shifting size와 유사하고, $$k_2$$는 window size와 유사하다.
 	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)    
 	
