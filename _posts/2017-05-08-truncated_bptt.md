@@ -20,6 +20,9 @@ published: true
 	![](https://iamtrask.github.io/img/backprop_through_time.gif)
 - 에러가 학습패러미터(웨이트와 바이어스)에 잘 전달되지 않으면 아무리 RNN, LSTM과 같은 모델을 사용한다해도 시간 모델링 (time-dependancy modeling)이 제대로 이루어질 수 없다. 반대로 필요하지 않은 이전 정보들까지도 학습하게 돼서 예측이 잘 안될 수도 있다.
 - 즉 장기 기억을 적절한 단위로 쪼개서 학습시키자는 것이 아이디어. 이는 vanishing and exploding gradients문제를 해결하면서, 동시에 특정 인풋에 적합한 시간 window를 사용하자는 것으로 해석이 가능하다.  
+> haha  
+> hoho  
+
 	> 비유를 하자면,  
 	> 비유1.  
 	> 1-1. (지금) 배가 아픔 --> (1시간 후) 티비를 봄  
@@ -37,20 +40,20 @@ published: true
 - truncated BPTT의 구현은 다양한 방법으로 이루어질 수 있다. 사운드에서 MFCC를 추출할 때, window size와 shifting size를 미리 정해줄 수 있는 것처럼, truncated BPTT에서도 BPTT를 얼마나 (시간적으로) 긴 단위에 걸쳐서 할 것인지 (=window size), 그리고 얼마나 촘촘하게 할 것인지 (=shifting size)를 설정할 수 있다.
 - 이렇게 BPTT의 촘촘함과 사이즈를 각각 $$k_1$$, $$k_2$$라고 표현할 수 있다 ([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html), [Ilya Sutskever’s Ph.D. thesis](http://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf)).
 - 즉 $k_1$, $k_2$를 적절히 잘 선택하면 얼마나 정밀하게, 그리고 얼마나 길게 시간 관계를 모델링할지를 설정할 수 있다.
-	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $k_1$이고, 얼마나 뒤까지 에러를 전달할지가 $k_2$이다. MFCC에 비유하자면, $k_1$는 shifting size와 유사하고, $k_2$는 window size와 유사하다.
+	- 좀 더 정확히 말하자면, 얼마나 BPTT를 자주 할지가 $$k_1$$이고, 얼마나 뒤까지 에러를 전달할지가 $$k_2$$이다. MFCC에 비유하자면, $$k_1$$는 shifting size와 유사하고, $$k_2$$는 window size와 유사하다.
 	- 참고: [Pseudo 코드 for truncated BPTT ](https://github.com/jaekookang/report/blob/master/Machine_Learning/ipynb_data/Sutskever2013.png?raw=true)    
 	
 	|      | 얼마나 멀리? | 얼마나 촘촘히? |  
 	| ---- | ----- | ----- |  
 	| MFCC | window size | shifting size |  
-	| truncated BPTT | $k_2$ | $k_1$ |  
+	| truncated BPTT | $$k_2$$ | $$k_1$$ |  
 			
 <br />	
-- TensorFlow에서는 $k_1 = k_2$로 설정한다는 점이 특징적이다 ([TensorFlow website](https://www.tensorflow.org/tutorials/recurrent), [WildML](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/)). 즉, shifting을 할 때, 안겹치게 하겠다는 것을 의미한다. 아래 그림 참조([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html)). 길이가 6인 인풋 데이터에서 $k_1=k_2=3$인 경우.
+- TensorFlow에서는 $$k_1 = k_2$$로 설정한다는 점이 특징적이다 ([TensorFlow website](https://www.tensorflow.org/tutorials/recurrent), [WildML](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/)). 즉, shifting을 할 때, 안겹치게 하겠다는 것을 의미한다. 아래 그림 참조([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html)). 길이가 6인 인풋 데이터에서 $$k_1=k_2=3$$인 경우.
 	![](http://r2rt.com/static/images/RNN_tf_truncated_backprop.png)
 
 <br />	
-- 반면 'true' truncated BPTT는 $k_1=1$로 설정하고 인풋이 한 번 포워드 될 때마다 BPTT를 하는 경우를 의미한다. 아래 그림 참조([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html)). 길이가 6인 인풋 데이터에서 $k_1=1, k_2=3$인 경우
+- 반면 'true' truncated BPTT는 $$k_1=1$$로 설정하고 인풋이 한 번 포워드 될 때마다 BPTT를 하는 경우를 의미한다. 아래 그림 참조([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html)). 길이가 6인 인풋 데이터에서 $$k_1=1, k_2=3$$인 경우
 	![](http://r2rt.com/static/images/RNN_true_truncated_backprop.png)
 
 <br />
