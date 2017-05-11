@@ -32,7 +32,7 @@ published: true
 	> 각 경우를 이해하기 위한 적절한 시간 단위는, 비유1에서는 '1분', 비유2에서는 '10년'이라고 할 수 있다.  
 	> 위의 비유가 완벽하지는 않지만, 각 사건 (인풋, 데이터 등)마다 시간 프레임이 다르기 때문에, 이를 고려해야한다는 것이 요지. 그리고 그것이 truncated BPTT의 아이디어와 밀접한 연관이 있다.   
 
-<br />
+
 # truncated BPTT의 구현
 - truncated BPTT의 구현은 다양한 방법으로 이루어질 수 있다. 사운드에서 MFCC를 추출할 때, window size와 shifting size를 미리 정해줄 수 있는 것처럼, truncated BPTT에서도 BPTT를 얼마나 (시간적으로) 긴 단위에 걸쳐서 할 것인지 (=window size), 그리고 얼마나 촘촘하게 할 것인지 (=shifting size)를 설정할 수 있다.
 - 이렇게 BPTT의 촘촘함과 사이즈를 각각 $k_1$, $k_2$라고 표현할 수 있다 ([r2rt.com](http://r2rt.com/styles-of-truncated-backpropagation.html), [Ilya Sutskever’s Ph.D. thesis](http://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf)).
